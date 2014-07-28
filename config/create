@@ -1,0 +1,58 @@
+#/bin/sh
+
+cmd=$1
+opt=$2
+
+ctags_bin="/usr/local/bin/ctags"
+ctags_opt="-R"
+cs_bin="/usr/local/bin/cscope"
+cs_opt="-bq"
+
+if [ ! -f $ctags_bin ]; then
+    ctags_bin=`which ctags`
+fi
+
+if [ ! -f $cs_bin ]; then
+    cs_bin=`which cscope`
+fi
+
+
+function usage()
+{
+    echo "create ctags|cscope <opt>"
+    echo ""
+    echo "options:"
+    echo "    -n --new rebuild cscope file list, if cscope file list not exist,"
+    echo "             it is set automaticlly"
+    echo "    -k --kernel build kernel source code"
+}
+
+case $cmd in
+    "tags" | "ctags" | "tag" )
+        $ctags_bin $ctags_opt `pwd`
+        ;;
+    "cs" | "cscope" | "scope")
+        case $opt in
+            "-n" | "--new")
+                find `pwd` -name "*.h" -o -name "*.c" -o -name "*.hpp" -o \
+                    -name "*.cpp" -o -name "*.hh" -o -name "*.hpp" >      \
+                    cscope.files
+                ;;
+            "-k" | "--kernel")
+                cs_opt="${cs_opt}k"
+                ;;
+            *)
+                if [ ! -f cscope.files ]; then
+                    find `pwd` -name "*.h" -o -name "*.c" -o -name "*.hpp" -o \
+                        -name "*.cpp" -o -name "*.hh" -o -name "*.hpp" >      \
+                        cscope.files
+                fi
+                ;;
+        esac
+        $cs_bin $cs_opt -i cscope.files
+        ;;
+    *)
+        usage
+        ;;
+esac
+
