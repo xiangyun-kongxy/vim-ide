@@ -8,7 +8,7 @@ if filereadable(csdb)
     endif
     set cscopequickfix=c-,d-,e-,f-,g-,i-,s-,t-
     set csto=1
-    set nocst
+    "set cst
     set cspc=3
 
     set nocsverb
@@ -16,7 +16,7 @@ if filereadable(csdb)
     set csverb
 
     nmap fc :cs f c <cword><cr>
-    nmap fa :cs f t <cword><cr>
+    nmap ft :cs f t <cword><cr>
     nmap fd :cs f d <cword><cr>
     nmap ff :cs f f <cword><cr>
     nmap fg :cs f g <cword><cr>
