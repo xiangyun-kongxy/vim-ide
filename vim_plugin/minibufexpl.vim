@@ -273,10 +273,10 @@
 "
 " Has this plugin already been loaded? {{{
 "
-if exists('loaded_minibufexplorer')
+if exists('g:loaded_minibufexplorer')
   finish
 endif
-let loaded_minibufexplorer = 1
+let g:loaded_minibufexplorer = 1
 " }}}
 
 " Mappings and Commands

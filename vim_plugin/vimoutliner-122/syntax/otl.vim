@@ -53,7 +53,7 @@ endif
 
 hi def otlFlag ctermbg=3 ctermfg=4 cterm=bold 
 if g:otl_bold_headers
-  hi def otlTab0 ctermfg=1 cterm=bold gui=bold guifg=red term=reverse
+  hi def otlTab0 ctermfg=0 cterm=bold gui=bold guifg=black term=reverse
   hi def otlTab1 ctermfg=4 cterm=bold gui=bold guifg=blue term=reverse
   hi def otlTab2 ctermfg=2 cterm=bold gui=bold guifg=darkgreen term=reverse
   hi def otlTab3 ctermfg=3 cterm=bold gui=bold guifg=brown term=reverse
@@ -64,7 +64,7 @@ if g:otl_bold_headers
   hi def otlTab8 ctermfg=2 cterm=bold gui=bold guifg=darkgreen term=reverse
   hi def otlTab9 ctermfg=3 cterm=bold gui=bold guifg=brown term=reverse
 else
-  hi def otlTab0 ctermfg=1 cterm=NONE guifg=red
+  hi def otlTab0 ctermfg=0 cterm=NONE guifg=black
   hi def otlTab1 ctermfg=4 cterm=NONE guifg=blue
   hi def otlTab2 ctermfg=2 cterm=NONE guifg=darkgreen
   hi def otlTab3 ctermfg=3 cterm=NONE guifg=brown
